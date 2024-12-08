@@ -1,0 +1,42 @@
+---
+import Navbar from "@components/Navbar.astro";
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Metas -->
+    <meta
+      name="description"
+      content={description ||
+        "Genera códigos QR para tus redes sociales, correos electrónicos, sitios web, etc., ¡¡totalmente gratuito!!"}
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fuentes -->
+    <link href="https://fonts.cdnfonts.com/css/nulshock" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- favicon -->
+
+    <link rel="shortcut icon" href="../assets/isotipo.svg" type="image/svg+xml" />
+
+    <title>{title || "Tool"} - Generador de QR</title>
+  </head>
+  <body class="bg-black text-neutral-300 font-montserrat">
+    <Navbar />
+
+    <main class="container py-8 md:my-16 block">
+      <slot />
+    </main>
+  </body>
+</html>

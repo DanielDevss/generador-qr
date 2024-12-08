@@ -1,0 +1,7 @@
+---
+const { legend } = Astro.props;
+---
+<fieldset class="flex flex-col gap-6">
+    {legend && <legend>{legend}</legend>}
+    <slot />
+</fieldset>

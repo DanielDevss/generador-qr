@@ -1,0 +1,11 @@
+---
+const { href, icon } = Astro.props;
+---
+
+<a
+    class="inline-flex gap-2 items-center py-5 px-2"
+    href={href}
+>
+    {icon}
+    <slot />
+</a>

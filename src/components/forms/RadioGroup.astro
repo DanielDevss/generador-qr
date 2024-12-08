@@ -1,0 +1,31 @@
+---
+import Radio from "./Radio.astro";
+
+const {
+  options = [{ label: "Opción 1", value: "1" }],
+  name, 
+  label,
+  required = false
+} = Astro.props;
+---
+
+<div>
+  <div class="font-semibold mb-7 mt-3">
+    <slot class="" />
+  </div>
+  <ul >
+    {options.map((item:{label:string, value:string, default:boolean}, key:number)=> (
+      <li>
+        <Radio
+          id={`check_${name}${key}`}
+          name={name}
+          value={item.value}
+          required={required}
+          checked={item.default}
+        >
+          {item.label}
+        </Radio>
+      </li>
+    ))}
+  </ul>
+</div>

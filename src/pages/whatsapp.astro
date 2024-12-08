@@ -1,0 +1,31 @@
+---
+import InputAndLabel from "@components/forms/InputAndLabel.astro";
+import Layout from "@layouts/Layout.astro";
+import TextAreaAndLabel from "@components/forms/TextAreaAndLabel.astro";
+---
+
+<Layout
+  title="Código QR con WhatsApp"
+  subtitle="Comparte tu WhatsApp por medio de códigos QR."
+  description="Genera códigos QR de WhatsApp de forma gratuita y rápida en diferentes formatos."
+>
+  <InputAndLabel
+    name="phone"
+    id="inpPhone"
+    type="tel"
+    placeholder="Ej: 3341455403"
+    required={true}
+  >
+    Número de WhatsApp
+  </InputAndLabel>
+
+  <TextAreaAndLabel
+    name="message"
+    id="textMessage"
+    placeholder="Ej: Hola, ¿me puede brindar más información?"
+  >
+    Mensaje a enviar (opcional)
+  </TextAreaAndLabel>
+
+  <script src="../assets/scripts/whatsapp.js"></script>
+</Layout>

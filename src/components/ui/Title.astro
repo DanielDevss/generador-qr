@@ -1,0 +1,10 @@
+---
+const { subtitle } = Astro.props
+---
+
+<header class="mb-10">
+    <h1 class="text-2xl md:text-3xl font-nulshock">
+        <slot />
+    </h1>
+    {subtitle && <h2 class="font-montserrat text-primary">{subtitle}</h2>}
+</header>

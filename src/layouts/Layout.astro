@@ -1,22 +1,46 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import 'toastify-js/src/toastify.css';
+const { 
+  title="Genera códigos QR", 
+  description="Genera códigos QR de forma gratuita y rápida en diferentes formatos.", 
+  subtitle="Genera códigos QR de forma gratuita y rápida en diferentes formatos." } = Astro.props;
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+import QRCodeResult from "@components/ui/QRCodeResult.astro";
+import LayoutMain from "./LayoutMain.astro";
+import ButtonPrimary from "@components/forms/ButtonPrimary.astro";
+import Fieldset from "@components/forms/Fieldset.astro";
+import Title from "@components/ui/Title.astro";
+import IcoQRCode from "@icons/QRCode.astro";
+---
+
+<LayoutMain
+  title={title}
+  description={description}
+>
+    <article>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <section>
+                <Title subtitle={subtitle}>{title}</Title>
+                <!-- Formulario -->
+                <form id="form" class="flex flex-col gap-10">
+
+                    <Fieldset>
+                        <slot />
+                    </Fieldset>
+
+                    <p class="text-gray-400">Rellena los campos para generar tú <span class="text-gray-300 font-semibold">Código QR</span>, y presiona en generar para poder descargarlo en <span class="text-gray-300 font-semibold">formato que desees</span>.</p>
+
+                    <ButtonPrimary>
+                        <IcoQRCode />
+                        Generar QR
+                    </ButtonPrimary>
+                </form>
+            </section>
+
+            <!-- Resultado -->
+            <section>
+                <QRCodeResult />
+            </section>
+        </div>
+    </article>
+</LayoutMain>

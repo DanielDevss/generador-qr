@@ -1,0 +1,30 @@
+---
+const { id, name, required = false, class: className, ...props } = Astro.props;
+---
+
+<label for={id} class="inline-flex items-center gap-2 w-fit cursor-pointer select-none">
+  <input
+    type="checkbox"
+    class="hidden peer"
+    name={name}
+    id={id}
+    required={required}
+    {...props}
+  />
+  <span class="inline-block peer-checked:text-primary text-gray-800 border border-gray-700 rounded-md">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      width="24"
+      height="24"
+      stroke-width="2"
+    >
+      <path d="M5 12l5 5l10 -10"></path>
+    </svg>
+  </span>
+  <slot />
+</label>

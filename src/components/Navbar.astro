@@ -1,0 +1,21 @@
+---
+import NavLink from "./NavLink.astro";
+import Isotipo from "@components/Isotipo.astro"
+import IcoGlobal from "@icons/Global.astro"
+import IcoWhatsApp from "@icons/WhatsApp.astro"
+import IcoWifi from "@icons/WiFi.astro"
+---
+
+<header class="border-b border-lime-400">
+    <div class="container flex md:flex-row flex-col justify-between items-center">
+            <a class="font-nulshock text-xl flex items-center gap-3 pt-3 md:pt-0" href="/">
+                <Isotipo />
+                QR-Code <span class="opacity-50">Raw</span>
+            </a>
+        <nav>
+            <NavLink href="/"><IcoGlobal /> Enlaces</NavLink>
+            <NavLink href="/whatsapp"><IcoWhatsApp /> WhatsApp</NavLink>
+            <NavLink href="/wifi"><IcoWifi /> WiFi</NavLink>
+        </nav>
+    </div>
+</header>

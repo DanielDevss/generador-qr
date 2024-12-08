@@ -1,0 +1,59 @@
+---
+import Checkbox from "@components/forms/Checkbox.astro";
+import InputAndLabel from "@components/forms/InputAndLabel.astro";
+import RadioGroup from "@components/forms/RadioGroup.astro";
+import Layout from "@layouts/Layout.astro";
+
+type SecurityType = {
+    label: string,
+    value: string,
+    default: boolean
+}
+const optionsSecurityType : SecurityType[] = [ 
+    {label: "WPA/WPA2 ( Moderna )", value: "WPA", default: true},
+    {label: "WEP", value: "WEP", default: false},
+    {label: "Abierta ( Sin contraseña )", value: "", default: false},
+]
+---
+
+<Layout
+    title="WiFi"
+>
+    <p class="font-bold">Información de tu red WiFi</p>
+    <InputAndLabel
+        name="SSID"
+        id="inpSSID"
+        type="text"
+        placeholder="Ej.: mi-red-wifi"
+        required={true}
+    >
+        Nombre de la red
+    </InputAndLabel>
+
+    <InputAndLabel
+        name="password"
+        id="inpPassword"
+        type="text"
+        placeholder="Ingresa la contraseña de tu red"
+        required={false}
+    >
+        Contraseña (opcional)
+    </InputAndLabel>
+
+    <Checkbox
+        id="checkHidden"
+        name="hidden"
+        value="true"
+    >
+        Red oculta
+    </Checkbox>
+
+    <RadioGroup 
+        name="type"
+        options={optionsSecurityType}
+    >
+        Tipo de seguridad WiFi
+    </RadioGroup>
+
+    <script src="../assets/scripts/wifi.js"></script>
+</Layout>
